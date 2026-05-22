@@ -1,0 +1,97 @@
+{
+  "id": "stripe:payments",
+  "name": "Stripe Payments API",
+  "description": "Stripe's HTTPS REST API for accepting payments, managing customers, and handling subscriptions. Indexed in multiple catalogs and widely used as a canonical example of a well-documented commercial API.",
+  "humanURL": "https://docs.stripe.com/api",
+  "baseURL": "https://api.stripe.com",
+  "provider": {
+    "name": "Stripe, Inc.",
+    "url": "https://stripe.com",
+    "githubOrg": "https://github.com/stripe",
+    "type": "Company"
+  },
+  "capability": {
+    "summary": "Accept payments, manage customers, and run subscriptions over a REST API.",
+    "intent": [
+      "charge a card",
+      "create a customer",
+      "issue a refund",
+      "subscribe a customer to a plan"
+    ],
+    "categories": ["Payments", "Financial Services"],
+    "operations": [
+      {
+        "name": "createPaymentIntent",
+        "method": "POST",
+        "path": "/v1/payment_intents",
+        "description": "Create a PaymentIntent to drive a payment flow."
+      },
+      {
+        "name": "createCustomer",
+        "method": "POST",
+        "path": "/v1/customers",
+        "description": "Create a customer."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "type": "ProviderPortal",
+      "url": "https://docs.stripe.com/api",
+      "evidence": {
+        "quote": "The Stripe API is organized around REST.",
+        "claim": "Stripe's API is RESTful and documented at docs.stripe.com/api.",
+        "url": "https://docs.stripe.com/api"
+      },
+      "retrieved": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "APIsGuru",
+      "url": "https://api.apis.guru/v2/specs/stripe.com/2020-08-27/openapi.yaml",
+      "retrieved": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "GitHubOrganization",
+      "url": "https://github.com/stripe",
+      "retrieved": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "Postman",
+      "url": "https://www.postman.com/stripedev",
+      "retrieved": "2026-05-22T00:00:00Z"
+    }
+  ],
+  "sourceOfTruth": "https://docs.stripe.com/api",
+  "artifacts": {
+    "openapi": [
+      "https://api.apis.guru/v2/specs/stripe.com/2020-08-27/openapi.yaml"
+    ],
+    "jsonLd": [
+      "https://schema.org/WebAPI"
+    ]
+  },
+  "signals": [
+    {
+      "type": "SDKCount",
+      "value": 7,
+      "source": "https://github.com/stripe",
+      "observed": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "HasPublicStatusPage",
+      "value": true,
+      "source": "https://status.stripe.com",
+      "observed": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "HasPublicChangelog",
+      "value": true,
+      "source": "https://docs.stripe.com/changelog",
+      "observed": "2026-05-22T00:00:00Z"
+    }
+  ],
+  "tags": ["Payments", "REST", "OpenAPI", "Commercial"],
+  "created": "2026-05-22",
+  "modified": "2026-05-22",
+  "confidence": "High"
+}

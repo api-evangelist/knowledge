@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/knowledge/json-schema/knowledge-source-schema.json",
+  "title": "API Knowledge Source",
+  "description": "One place where an API is described or indexed. Used as an element of a knowledge record's sources array, but also publishable on its own (e.g. for indexing a catalog like APIs.guru or RapidAPI Hub as a top-level knowledge source).",
+  "type": "object",
+  "required": ["type", "url"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "APIsJSON",
+        "APIsGuru",
+        "RapidAPI",
+        "Postman",
+        "ProviderPortal",
+        "OpenAPI",
+        "GitHubRepository",
+        "GitHubOrganization",
+        "DocumentationSite",
+        "Changelog",
+        "StatusPage",
+        "Blog",
+        "Marketplace",
+        "MCPRegistry",
+        "NaftikoSignals",
+        "SchemaOrg",
+        "LlmsTxt",
+        "Other"
+      ]
+    },
+    "name": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "description": { "type": "string" },
+    "format": {
+      "type": "string",
+      "enum": ["OpenAPI", "AsyncAPI", "PostmanCollection", "APIsJSON", "JSONLD", "JSONSchema", "Arazzo", "Markdown", "HTML", "Other"]
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["SingleAPI", "ProviderCatalog", "MultiProviderIndex", "AgentRegistry", "SignalsFeed"]
+    },
+    "trustLevel": {
+      "type": "string",
+      "enum": ["Authoritative", "Curated", "Aggregated", "Community"],
+      "description": "How much weight to give this source when there's a conflict. Authoritative = provider-published; Curated = editorially maintained third party; Aggregated = scraped/auto-imported; Community = user-contributed."
+    },
+    "license": { "type": "string" },
+    "retrieved": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,247 @@
+name: API Knowledge Vocabulary
+description: >-
+  Normative vocabulary for the API Knowledge topic repo. Captures the
+  concepts, source types, capability dimensions, evidence units, and signals
+  that describe an API in an agent-readable way. The vocabulary is organized
+  into an operational dimension (the concrete things you index and emit) and
+  a capability dimension (the agent-facing meaning of an API). Aligns with
+  schema.org/WebAPI, APIs.json, PROV-O, and the Naftiko capability spec.
+url: https://github.com/api-evangelist/knowledge
+version: '0.1.0'
+created: '2026-05-22'
+modified: '2026-05-22'
+
+operational:
+  description: >-
+    Concrete artifacts and sources that appear in an API knowledge layer.
+
+  concepts:
+    - name: KnowledgeRecord
+      description: >-
+        A single, agent-readable description of one API, aggregating
+        evidence from one or more sources into a canonical view.
+    - name: Provider
+      description: >-
+        The organization or person operating the API.
+    - name: Source
+      description: >-
+        A place where evidence about the API was found.
+    - name: Evidence
+      description: >-
+        A short verbatim quote, with a URL, that supports a specific claim
+        in the knowledge record.
+    - name: Capability
+      description: >-
+        The agent-facing description of what the API can do.
+    - name: Operation
+      description: >-
+        A single named HTTP method + path the API exposes.
+    - name: Signal
+      description: >-
+        A timestamped, third-party signal about the API or its provider
+        (GitHub stars, job postings, changelog cadence, Naftiko signal
+        group).
+    - name: Observation
+      description: >-
+        A single retrieval event that contributes evidence to a record.
+
+  sourceTypes:
+    - name: APIsJSON
+      description: >-
+        An apis.json or apis.yml file published by a provider as a sitemap
+        for their APIs.
+    - name: APIsGuru
+      description: >-
+        The community OpenAPI directory at api.apis.guru.
+    - name: RapidAPI
+      description: >-
+        The RapidAPI Hub marketplace.
+    - name: Postman
+      description: >-
+        A workspace or collection in the Postman Public API Network.
+    - name: ProviderPortal
+      description: >-
+        The provider's own developer portal.
+    - name: OpenAPI
+      description: >-
+        A standalone OpenAPI 2.0/3.x file.
+    - name: GitHubRepository
+      description: >-
+        A GitHub repository that contains the API source, SDK, or spec.
+    - name: GitHubOrganization
+      description: >-
+        A GitHub org owned by the provider.
+    - name: DocumentationSite
+      description: >-
+        A documentation site (Docusaurus, ReadMe, Mintlify, etc.).
+    - name: Changelog
+      description: >-
+        A page or feed of API changes.
+    - name: StatusPage
+      description: >-
+        A status or uptime page.
+    - name: Blog
+      description: >-
+        The provider's engineering or developer blog.
+    - name: Marketplace
+      description: >-
+        Any third-party API marketplace.
+    - name: MCPRegistry
+      description: >-
+        A registry of MCP servers (official MCP Registry, Smithery, Pulse
+        MCP).
+    - name: NaftikoSignals
+      description: >-
+        Naftiko Signals' company-and-investment intelligence feed.
+    - name: SchemaOrg
+      description: >-
+        schema.org/WebAPI JSON-LD embedded in a page.
+    - name: LlmsTxt
+      description: >-
+        A /llms.txt file at a site's root.
+    - name: Other
+      description: >-
+        Any source that does not fit the above types.
+
+  trustLevels:
+    - name: Authoritative
+      description: >-
+        Published directly by the provider.
+    - name: Curated
+      description: >-
+        Editorially maintained by a trusted third party.
+    - name: Aggregated
+      description: >-
+        Scraped or auto-imported with no editorial review.
+    - name: Community
+      description: >-
+        User-contributed, possibly unverified.
+
+capability:
+  description: >-
+    Agent-facing dimensions that let an LLM match intent to a callable
+    surface.
+
+  intents:
+    - name: Discover
+      description: >-
+        Find an API that exposes a desired capability.
+    - name: Describe
+      description: >-
+        Get a structured description of a known API.
+    - name: Authenticate
+      description: >-
+        Obtain credentials and authenticate against the API.
+    - name: Invoke
+      description: >-
+        Make a single API call.
+    - name: Compose
+      description: >-
+        Chain multiple API calls into a workflow.
+    - name: Observe
+      description: >-
+        Monitor the health, change cadence, or signals around an API.
+
+  agentReadiness:
+    - name: HasOpenAPI
+      description: >-
+        A public OpenAPI document is available.
+    - name: HasMCPServer
+      description: >-
+        At least one MCP server fronts the API.
+    - name: HasArazzo
+      description: >-
+        At least one Arazzo workflow describes a multi-step interaction.
+    - name: HasLlmsTxt
+      description: >-
+        The provider publishes /llms.txt.
+    - name: HasJsonLd
+      description: >-
+        The provider publishes schema.org/WebAPI JSON-LD.
+    - name: HasPostmanCollection
+      description: >-
+        A Postman collection is published.
+
+  personas:
+    - name: Developer
+      description: >-
+        A human integrator looking for APIs to use.
+    - name: Architect
+      description: >-
+        Designs and governs API platforms.
+    - name: Analyst
+      description: >-
+        Studies the API economy across providers.
+    - name: Agent
+      description: >-
+        An LLM-driven autonomous consumer.
+    - name: PlatformOperator
+      description: >-
+        Runs the catalog itself.
+
+  workflows:
+    - name: RAG Over Provider Docs
+      description: >-
+        Index a provider's docs, OpenAPI, llms.txt, and blog, then answer
+        agent queries with source-cited responses.
+    - name: Cross-Catalog Search
+      description: >-
+        Search APIs.guru, RapidAPI Hub, Postman, and an internal catalog
+        in parallel, then merge by canonical URL.
+    - name: Capability Matching
+      description: >-
+        Translate a natural-language intent into a ranked list of
+        candidate APIs.
+    - name: Provenance Audit
+      description: >-
+        Walk a knowledge record's sources and re-verify each verbatim
+        quote.
+    - name: Signal Watch
+      description: >-
+        Subscribe to Naftiko Signals, GitHub releases, and changelog feeds
+        for a watched set of APIs.
+
+signals:
+  description: >-
+    Common signal types observed about APIs.
+  types:
+    - name: GitHubStars
+      description: Star count on the provider's primary repo.
+    - name: GitHubReleasesLast90d
+      description: Release count in the last 90 days.
+    - name: ChangelogCadenceDays
+      description: Median days between changelog entries.
+    - name: JobPostingsLast30d
+      description: Job postings mentioning the API or platform.
+    - name: NaftikoSignalGroup
+      description: Naftiko Signals group(s) the provider falls into.
+    - name: HasPublicStatusPage
+      description: Boolean — does the provider publish a status page.
+    - name: HasPublicChangelog
+      description: Boolean — does the provider publish a changelog.
+    - name: SDKCount
+      description: Number of officially supported SDK languages.
+    - name: PostmanForks
+      description: Forks of the provider's Postman collection.
+
+confidence:
+  description: >-
+    Aggregate confidence levels for a knowledge record.
+  levels:
+    - name: High
+      description: >-
+        At least one Authoritative source, and at least one Curated or
+        Aggregated cross-reference, both retrieved in the last 90 days.
+    - name: Medium
+      description: >-
+        Either no Authoritative source, or all sources are older than
+        90 days.
+    - name: Low
+      description: >-
+        Only Community or Aggregated sources, or active conflicts between
+        sources.
+
+maintainers:
+  - FN: Kin Lane
+    email: kinlane@gmail.com
+    url: http://kinlane.com

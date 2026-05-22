@@ -1,0 +1,10 @@
+{
+  "type": "NaftikoSignals",
+  "name": "Naftiko Signals",
+  "url": "https://signals.naftiko.io",
+  "description": "Investment-and-technology intelligence layer tracking 884 companies across 50 industries and 44 signal groups; emits JSON-LD-described company records that complement OpenAPI-centric catalogs.",
+  "format": "JSONLD",
+  "scope": "SignalsFeed",
+  "trustLevel": "Curated",
+  "retrieved": "2026-05-22T00:00:00Z"
+}

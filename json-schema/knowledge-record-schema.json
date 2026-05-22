@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/knowledge/json-schema/knowledge-record-schema.json",
+  "title": "API Knowledge Record",
+  "description": "A single, agent-readable knowledge record about an API. Aggregates evidence from one or more sources (APIs.json, APIs.guru, RapidAPI, Postman, the provider's own portal, Naftiko Signals) into a structured, source-cited view of one API surface.",
+  "type": "object",
+  "required": ["id", "name", "provider", "capability", "sources"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable, lowercase, dash-delimited identifier for the API knowledge record. Should be globally unique within the knowledge layer. Convention: '{provider-slug}:{api-slug}'."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the API."
+    },
+    "description": {
+      "type": "string",
+      "description": "One-paragraph description of what the API does, written from the provider's own materials."
+    },
+    "humanURL": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical developer-portal URL for the API."
+    },
+    "baseURL": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical request base URL for the API, if it has one."
+    },
+    "provider": {
+      "type": "object",
+      "description": "The organization or person operating the API.",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "githubOrg": { "type": "string", "format": "uri" },
+        "type": {
+          "type": "string",
+          "enum": ["Company", "Government", "Standard", "OpenSource", "Topic", "Individual"]
+        }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "description": "What the API can actually do. The agent-facing capability summary.",
+      "required": ["summary"],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "description": "One-line capability summary, e.g. 'Send SMS messages globally', 'Query U.S. census tracts by FIPS code'."
+        },
+        "categories": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Coarse categories the API belongs to (e.g. 'Communications', 'Payments', 'AI/ML')."
+        },
+        "operations": {
+          "type": "array",
+          "description": "Optional list of named operations.",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "method": {
+                "type": "string",
+                "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]
+              },
+              "path": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "description": "Every place where this API is described or indexed. At least one entry is required.",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "sourceOfTruth": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL identifying the authoritative source for this API (typically the provider's own OpenAPI or developer portal). Used when sources conflict."
+    },
+    "artifacts": {
+      "type": "object",
+      "description": "Machine-readable artifacts that describe this API.",
+      "properties": {
+        "openapi": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        "asyncapi": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        "jsonSchema": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        "jsonLd": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        "postmanCollection": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        "arazzo": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        "mcpServer": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        "llmsTxt": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "signals": {
+      "type": "array",
+      "description": "External signals attached to this API (GitHub stars, hiring activity, changelog cadence, Naftiko Signal groups, etc.).",
+      "items": { "$ref": "#/$defs/signal" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "modified": {
+      "type": "string",
+      "format": "date"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["High", "Medium", "Low"],
+      "description": "Aggregate confidence in the record, derived from source diversity and recency."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["type", "url"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "APIsJSON",
+            "APIsGuru",
+            "RapidAPI",
+            "Postman",
+            "ProviderPortal",
+            "OpenAPI",
+            "GitHubRepository",
+            "GitHubOrganization",
+            "DocumentationSite",
+            "Changelog",
+            "StatusPage",
+            "Blog",
+            "Marketplace",
+            "MCPRegistry",
+            "NaftikoSignals",
+            "SchemaOrg",
+            "LlmsTxt",
+            "Other"
+          ],
+          "description": "Kind of source emitting this evidence."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the source page or file."
+        },
+        "evidence": { "$ref": "#/$defs/evidence" },
+        "retrieved": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this source was last verified."
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "description": "A piece of cited evidence supporting a claim in the knowledge record.",
+      "required": ["quote"],
+      "properties": {
+        "quote": {
+          "type": "string",
+          "description": "Verbatim quote from the source. Should be short enough to fall within fair use."
+        },
+        "claim": {
+          "type": "string",
+          "description": "The claim the quote supports (e.g. 'has public OpenAPI', 'rate limit 1000/hour', 'provider is a Linux Foundation member')."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the page the quote is from, if different from the parent source URL."
+        }
+      }
+    },
+    "signal": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Kind of signal (e.g. 'GitHubStars', 'JobPostingsLast30d', 'NaftikoSignalGroup', 'ChangelogCadenceDays')."
+        },
+        "value": {
+          "description": "Signal value, untyped because signal types vary."
+        },
+        "source": {
+          "type": "string",
+          "format": "uri"
+        },
+        "observed": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

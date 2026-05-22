@@ -1,0 +1,7 @@
+{
+  "type": "NaftikoSignalGroup",
+  "value": ["Hiring-Backend", "Hiring-AI", "Hiring-DevTools"],
+  "source": "https://signals.naftiko.io/companies/openai",
+  "observed": "2026-05-22T00:00:00Z",
+  "decay": "P30D"
+}

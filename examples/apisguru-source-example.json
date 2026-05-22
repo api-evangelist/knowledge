@@ -1,0 +1,11 @@
+{
+  "type": "APIsGuru",
+  "name": "APIs.guru OpenAPI Directory",
+  "url": "https://api.apis.guru/v2",
+  "description": "Community-driven OpenAPI directory; the canonical aggregator of public OpenAPI 2.0/3.x specifications.",
+  "format": "OpenAPI",
+  "scope": "MultiProviderIndex",
+  "trustLevel": "Aggregated",
+  "license": "CC0-1.0",
+  "retrieved": "2026-05-22T00:00:00Z"
+}

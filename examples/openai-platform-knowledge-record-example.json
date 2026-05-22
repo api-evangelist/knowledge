@@ -1,0 +1,92 @@
+{
+  "id": "openai:platform",
+  "name": "OpenAI Platform API",
+  "description": "OpenAI's REST API for chat completions, embeddings, image generation, audio, and Assistants. Published with an official OpenAPI spec and a documented MCP surface via the ChatGPT Apps SDK.",
+  "humanURL": "https://platform.openai.com/docs/api-reference",
+  "baseURL": "https://api.openai.com",
+  "provider": {
+    "name": "OpenAI",
+    "url": "https://openai.com",
+    "githubOrg": "https://github.com/openai",
+    "type": "Company"
+  },
+  "capability": {
+    "summary": "Call LLMs, embeddings, image, and audio models; orchestrate Assistants over a REST API.",
+    "intent": [
+      "complete a chat",
+      "generate an embedding",
+      "transcribe audio",
+      "generate an image",
+      "run an Assistant"
+    ],
+    "categories": ["AI/ML", "LLMs", "Embeddings"],
+    "operations": [
+      {
+        "name": "createChatCompletion",
+        "method": "POST",
+        "path": "/v1/chat/completions",
+        "description": "Generate a chat completion from a list of messages."
+      },
+      {
+        "name": "createEmbedding",
+        "method": "POST",
+        "path": "/v1/embeddings",
+        "description": "Generate an embedding vector for input text."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "type": "ProviderPortal",
+      "url": "https://platform.openai.com/docs/api-reference",
+      "retrieved": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "GitHubRepository",
+      "url": "https://github.com/openai/openai-openapi",
+      "evidence": {
+        "quote": "OpenAPI specification for the OpenAI API",
+        "claim": "OpenAI publishes its OpenAPI spec on GitHub.",
+        "url": "https://github.com/openai/openai-openapi"
+      },
+      "retrieved": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "DocumentationSite",
+      "url": "https://developers.openai.com/api/docs/mcp/",
+      "evidence": {
+        "quote": "ChatGPT supports MCP through the Apps SDK",
+        "claim": "OpenAI exposes an MCP surface for ChatGPT.",
+        "url": "https://developers.openai.com/api/docs/mcp/"
+      },
+      "retrieved": "2026-05-22T00:00:00Z"
+    }
+  ],
+  "sourceOfTruth": "https://github.com/openai/openai-openapi",
+  "artifacts": {
+    "openapi": [
+      "https://github.com/openai/openai-openapi"
+    ],
+    "mcpServer": [
+      "https://developers.openai.com/api/docs/mcp/"
+    ]
+  },
+  "signals": [
+    {
+      "type": "SDKCount",
+      "value": 6,
+      "source": "https://github.com/openai",
+      "observed": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "HasPublicStatusPage",
+      "value": true,
+      "source": "https://status.openai.com",
+      "observed": "2026-05-22T00:00:00Z"
+    }
+  ],
+  "tags": ["AI", "LLM", "OpenAPI", "MCP"],
+  "created": "2026-05-22",
+  "modified": "2026-05-22",
+  "confidence": "High"
+}

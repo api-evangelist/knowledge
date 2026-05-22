@@ -1,0 +1,26 @@
+{
+  "recordId": "stripe:payments",
+  "observed": "2026-05-22T00:00:00Z",
+  "source": "https://docs.stripe.com/api",
+  "fields": {
+    "baseURL": "https://api.stripe.com",
+    "version": "2024-12-18.acacia",
+    "hasOpenAPI": true,
+    "hasPublicStatusPage": true,
+    "hasPublicChangelog": true
+  },
+  "delta": {
+    "version": {
+      "previous": "2024-11-20.acacia",
+      "current": "2024-12-18.acacia"
+    }
+  },
+  "evidence": [
+    {
+      "quote": "API version 2024-12-18.acacia",
+      "claim": "Current API version as of observation.",
+      "url": "https://docs.stripe.com/api/versioning",
+      "retrieved": "2026-05-22T00:00:00Z"
+    }
+  ]
+}

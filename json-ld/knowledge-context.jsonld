@@ -1,0 +1,174 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "apis": "http://apisjson.org/ns#",
+    "kn": "https://api-evangelist.github.io/knowledge/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+
+    "id": "@id",
+    "type": "@type",
+
+    "name": "schema:name",
+    "title": "schema:headline",
+    "description": "schema:description",
+    "url": "schema:url",
+    "humanURL": "schema:url",
+    "baseURL": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "version": "schema:version",
+    "license": "schema:license",
+    "created": "dcterms:created",
+    "modified": "dcterms:modified",
+    "retrieved": "dcterms:date",
+
+    "KnowledgeRecord": {
+      "@id": "kn:KnowledgeRecord",
+      "schema:subClassOf": "schema:Dataset"
+    },
+    "Provider": {
+      "@id": "kn:Provider",
+      "schema:subClassOf": "schema:Organization"
+    },
+    "Capability": {
+      "@id": "kn:Capability",
+      "schema:subClassOf": "schema:Action"
+    },
+    "Source": {
+      "@id": "kn:Source",
+      "schema:subClassOf": "prov:Entity"
+    },
+    "Evidence": {
+      "@id": "kn:Evidence",
+      "schema:subClassOf": "prov:Entity"
+    },
+    "Signal": {
+      "@id": "kn:Signal"
+    },
+    "Observation": {
+      "@id": "kn:Observation",
+      "schema:subClassOf": "prov:Activity"
+    },
+
+    "API": {
+      "@id": "schema:WebAPI"
+    },
+    "documentation": {
+      "@id": "schema:documentation",
+      "@type": "@id"
+    },
+    "provider": {
+      "@id": "schema:provider",
+      "@type": "@id"
+    },
+    "termsOfService": {
+      "@id": "schema:termsOfService",
+      "@type": "@id"
+    },
+
+    "provider.name": "schema:name",
+    "provider.url": "schema:url",
+    "provider.githubOrg": {
+      "@id": "kn:githubOrg",
+      "@type": "@id"
+    },
+    "provider.type": "kn:providerType",
+
+    "capability": {
+      "@id": "kn:capability",
+      "@type": "@id"
+    },
+    "capability.summary": "kn:summary",
+    "capability.intent": "kn:intent",
+    "capability.categories": "schema:category",
+    "capability.operations": "kn:operations",
+
+    "operations": "kn:operations",
+    "method": "schema:httpMethod",
+    "path": "schema:urlTemplate",
+    "scopes": "kn:scopes",
+
+    "sources": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "sourceOfTruth": {
+      "@id": "kn:sourceOfTruth",
+      "@type": "@id"
+    },
+    "evidence": "kn:evidence",
+    "quote": "kn:quote",
+    "claim": "kn:claim",
+    "anchor": "kn:anchor",
+    "trustLevel": "kn:trustLevel",
+    "scope": "kn:scope",
+    "format": "schema:encodingFormat",
+
+    "signals": "kn:signals",
+    "value": "schema:value",
+    "unit": "schema:unitText",
+    "observed": "kn:observed",
+    "decay": "kn:decay",
+
+    "artifacts": "kn:artifacts",
+    "openapi": {
+      "@id": "kn:openapi",
+      "@type": "@id"
+    },
+    "asyncapi": {
+      "@id": "kn:asyncapi",
+      "@type": "@id"
+    },
+    "jsonSchema": {
+      "@id": "kn:jsonSchema",
+      "@type": "@id"
+    },
+    "jsonLd": {
+      "@id": "kn:jsonLd",
+      "@type": "@id"
+    },
+    "postmanCollection": {
+      "@id": "kn:postmanCollection",
+      "@type": "@id"
+    },
+    "arazzo": {
+      "@id": "kn:arazzo",
+      "@type": "@id"
+    },
+    "mcpServer": {
+      "@id": "kn:mcpServer",
+      "@type": "@id"
+    },
+    "llmsTxt": {
+      "@id": "kn:llmsTxt",
+      "@type": "@id"
+    },
+
+    "tags": "schema:keywords",
+    "confidence": "kn:confidence",
+
+    "agentReady": "kn:agentReady",
+    "hasOpenAPI": "kn:hasOpenAPI",
+    "hasMCPServer": "kn:hasMCPServer",
+    "hasArazzo": "kn:hasArazzo",
+    "hasLlmsTxt": "kn:hasLlmsTxt",
+    "hasJsonLd": "kn:hasJsonLd"
+  },
+  "@graph": [
+    {
+      "@id": "https://github.com/api-evangelist/knowledge",
+      "@type": ["schema:Dataset", "kn:KnowledgeRecord"],
+      "name": "API Knowledge",
+      "description": "Multi-source index of the formats and platforms that publish API knowledge for humans and agents.",
+      "publisher": {
+        "@type": "schema:Organization",
+        "name": "API Evangelist",
+        "url": "https://apievangelist.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/knowledge/json-schema/knowledge-capability-schema.json",
+  "title": "API Capability",
+  "description": "The agent-facing capability description for one API. Captures what the API can do at a level that supports intent-to-tool matching by an LLM agent.",
+  "type": "object",
+  "required": ["summary"],
+  "properties": {
+    "summary": {
+      "type": "string",
+      "description": "One-line capability summary."
+    },
+    "intent": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Natural-language intents this capability satisfies, useful for retrieval (e.g. 'send a text message', 'check delivery status')."
+    },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "method": {
+            "type": "string",
+            "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]
+          },
+          "path": { "type": "string" },
+          "description": { "type": "string" },
+          "scopes": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "auth": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["None", "ApiKey", "BasicAuth", "BearerToken", "OAuth2", "OIDC", "JWT", "MutualTLS", "Custom"]
+      }
+    },
+    "limits": {
+      "type": "object",
+      "properties": {
+        "rateLimit": { "type": "string" },
+        "quota": { "type": "string" },
+        "concurrency": { "type": "string" }
+      }
+    },
+    "agentReady": {
+      "type": "object",
+      "description": "Indicators that the API is ready for direct agent consumption.",
+      "properties": {
+        "hasOpenAPI": { "type": "boolean" },
+        "hasMCPServer": { "type": "boolean" },
+        "hasArazzo": { "type": "boolean" },
+        "hasLlmsTxt": { "type": "boolean" },
+        "hasJsonLd": { "type": "boolean" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

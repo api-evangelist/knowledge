@@ -1,0 +1,392 @@
+name: API Knowledge
+description: >-
+  API knowledge is the layer of indexes, descriptions, contexts, and signals
+  that lets humans and agents reason about which APIs exist, what they do, who
+  operates them, what they cost, how to call them, and how trustworthy they
+  are. This topic repo catalogs the formats and platforms that publish API
+  knowledge — APIs.json as a sitemap for an API project, APIs.guru as the
+  community OpenAPI directory, RapidAPI Hub and the Postman Public API Network
+  as commercial discovery surfaces, the OpenAPI Initiative as the spec
+  authority, Jentic and Composio as agent-facing knowledge layers, llms.txt as
+  a site-level guide for LLMs, schema.org/WebAPI as the structured-data
+  vocabulary, and Naftiko Signals as a company-and-investment intelligence
+  layer that complements the spec-driven catalogs. Together they form a
+  multi-source view of the API knowledge an AI agent needs to do real work
+  against the API economy.
+url: https://github.com/api-evangelist/knowledge
+humanURL: https://apievangelist.com
+image: ''
+tags:
+  - API Knowledge
+  - Knowledge Graphs
+  - API Discovery
+  - API Search
+  - Catalogs
+  - Indexes
+  - Registries
+  - RAG
+  - Semantic Web
+  - JSON-LD
+  - LLMs
+  - AI Agents
+  - Topic
+created: '2026-05-22'
+modified: '2026-05-22'
+specificationVersion: '0.20'
+type: Index
+
+apis:
+  - name: APIs.json
+    description: >-
+      APIs.json is an open-source machine-readable format for indexing the
+      surface area of an API project — its operations, OpenAPI files, JSON
+      Schema, JSON-LD contexts, documentation, pricing, status page, and
+      maintainer contacts. It functions as a sitemap.xml for APIs and is the
+      structural backbone of every repository in the API Evangelist network.
+      The current stable revision is 0.20 with a 0.21 draft in flight.
+    humanURL: https://apisjson.org
+    baseURL: ''
+    tags:
+      - Index
+      - Discovery
+      - Catalog
+      - Specification
+    properties:
+      - type: Documentation
+        url: https://apisjson.org
+      - type: GitHubRepository
+        url: https://github.com/apis-json/api-specification
+      - type: Versioning
+        url: https://apisjson.org
+
+  - name: APIs.guru OpenAPI Directory
+    description: >-
+      APIs.guru is the community-driven directory of OpenAPI 2.0 and 3.x
+      definitions for publicly available APIs. As reported on the
+      api.apis.guru metrics endpoint, the directory currently indexes 2,529
+      APIs across 677 providers, with 3,992 specifications and 108,837
+      endpoints. It exposes both an HTML browse experience and a REST API at
+      api.apis.guru so that other tooling can pull live OpenAPI definitions on
+      demand.
+    humanURL: https://apis.guru
+    baseURL: https://api.apis.guru/v2
+    tags:
+      - OpenAPI
+      - Directory
+      - Catalog
+      - Community
+    properties:
+      - type: Portal
+        url: https://apis.guru
+      - type: GitHubRepository
+        url: https://github.com/APIs-guru/openapi-directory
+      - type: APIReference
+        url: https://api.apis.guru/v2/list.json
+      - type: Documentation
+        url: https://github.com/APIs-guru/openapi-directory#readme
+
+  - name: RapidAPI Hub
+    description: >-
+      RapidAPI Hub is a commercial API marketplace and developer portal that
+      acts as a discovery, onboarding, and metering layer over thousands of
+      third-party APIs. RapidAPI Hub fronts a single key, single billing
+      relationship, and a normalized "Try it" experience across the catalog.
+      It is the canonical example of a commercial API knowledge surface aimed
+      at developers rather than agents.
+    humanURL: https://rapidapi.com/hub
+    tags:
+      - Marketplace
+      - Hub
+      - Discovery
+      - Commercial
+    properties:
+      - type: Portal
+        url: https://rapidapi.com/hub
+      - type: Documentation
+        url: https://docs.rapidapi.com
+
+  - name: Postman Public API Network
+    description: >-
+      The Postman Public API Network is Postman's public-facing index of API
+      workspaces, collections, and environments. Postman's "Explore" surface
+      organizes the network by category (App Security, Artificial
+      Intelligence, Payments, etc.) and is the largest aggregator of
+      executable API artifacts in collection form. It is the dominant
+      collection-format counterpart to APIs.guru's OpenAPI directory.
+    humanURL: https://www.postman.com/explore
+    tags:
+      - Collections
+      - Discovery
+      - Workspaces
+      - Commercial
+    properties:
+      - type: Portal
+        url: https://www.postman.com/explore
+      - type: Documentation
+        url: https://learning.postman.com
+
+  - name: OpenAPI Initiative
+    description: >-
+      The OpenAPI Initiative (OAI) is the Linux Foundation working group that
+      stewards the OpenAPI Specification — the de-facto contract format for
+      HTTP APIs and the substrate underneath most API knowledge tooling.
+      OpenAPI 3.2.0 was released on 19 September 2025 and is the version
+      currently advertised at spec.openapis.org/oas/latest.html. OAI also
+      runs learn.openapis.org as a knowledge surface for the spec itself.
+    humanURL: https://www.openapis.org
+    tags:
+      - Standard
+      - OpenAPI
+      - Specification
+      - Linux Foundation
+    properties:
+      - type: Portal
+        url: https://www.openapis.org
+      - type: Documentation
+        url: https://spec.openapis.org/oas/latest.html
+      - type: GitHubOrganization
+        url: https://github.com/OAI
+      - type: Training
+        url: https://learn.openapis.org
+
+  - name: Jentic
+    description: >-
+      Jentic is a governed execution layer that lets AI agents call enterprise
+      APIs safely. It describes API workflows using the Arazzo open standard
+      on top of OpenAPI, validates agent behavior in a sandbox, and converts
+      successful interactions into deterministic, replayable workflows. Jentic
+      is one of the clearest examples of agent-facing API knowledge that is
+      both descriptive (what the API is) and operational (how to call it
+      safely).
+    humanURL: https://jentic.com
+    tags:
+      - Agents
+      - Arazzo
+      - Workflows
+      - Governance
+    properties:
+      - type: Portal
+        url: https://jentic.com
+      - type: Documentation
+        url: https://docs.jentic.com
+
+  - name: Composio
+    description: >-
+      Composio is an agent integration platform that exposes 1,000+
+      third-party applications as agent-ready tools. Composio publishes a
+      tool registry accessed through session.tools() and ships both an
+      OpenAPI-based native tool representation and an MCP-formatted surface
+      for broader client compatibility. It is the dominant commercial
+      "knowledge plus auth plus execution" layer aimed at agent builders.
+    humanURL: https://composio.dev
+    tags:
+      - Agents
+      - Tools
+      - MCP
+      - Integrations
+    properties:
+      - type: Portal
+        url: https://composio.dev
+      - type: Documentation
+        url: https://docs.composio.dev
+
+  - name: Naftiko Signals
+    description: >-
+      Naftiko Signals is an investment-and-technology intelligence layer that
+      tracks how companies invest in technology categories — including APIs —
+      across industries. As reported on signals.naftiko.io, the platform
+      currently indexes 884 companies across 50 industries and 44 signal
+      groups, harvesting public signals (job postings, GitHub, blogs,
+      changelogs) and emitting JSON-LD-described company records so agents and
+      analysts can reason about API providers in context. It complements
+      OpenAPI-centric catalogs like APIs.guru by capturing the people,
+      hiring, and organizational signals around an API.
+    humanURL: https://signals.naftiko.io
+    tags:
+      - Signals
+      - Intelligence
+      - Companies
+      - JSON-LD
+    properties:
+      - type: Portal
+        url: https://signals.naftiko.io
+      - type: GitHubOrganization
+        url: https://github.com/naftiko
+      - type: GitHubRepository
+        url: https://github.com/api-evangelist/naftiko
+
+  - name: llms.txt
+    description: >-
+      llms.txt is a community specification for a markdown file placed at the
+      root path /llms.txt that gives LLMs a curated, link-rich entry point to
+      a site's most important content. The spec is the lightest-weight form
+      of API knowledge — it does not describe the API contract, but it
+      enables an agent crawling a developer portal to find the docs,
+      reference, and changelog without parsing the whole site. Early adopters
+      include the FastHTML project and Answer.AI / fast.ai's nbdev sites.
+    humanURL: https://llmstxt.org
+    tags:
+      - LLM
+      - Knowledge
+      - Markdown
+      - Discovery
+    properties:
+      - type: Portal
+        url: https://llmstxt.org
+      - type: GitHubRepository
+        url: https://github.com/AnswerDotAI/llms-txt
+
+  - name: schema.org WebAPI
+    description: >-
+      schema.org/WebAPI is the structured-data vocabulary for describing an
+      "application programming interface accessible over Web/Internet
+      technologies." It inherits from schema.org/Service and contributes
+      properties like documentation, provider, termsOfService, name,
+      description, and url. WebAPI is the canonical way to embed
+      machine-readable knowledge about an API into a web page so that search
+      engines and agents can pick it up via JSON-LD.
+    humanURL: https://schema.org/WebAPI
+    tags:
+      - Vocabulary
+      - Schema.org
+      - JSON-LD
+      - Semantic Web
+    properties:
+      - type: Documentation
+        url: https://schema.org/WebAPI
+
+common:
+  - type: Portal
+    url: https://github.com/api-evangelist/knowledge
+  - type: GitHubRepository
+    url: https://github.com/api-evangelist/knowledge
+  - type: Vocabulary
+    url: vocabulary/knowledge-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/knowledge-context.jsonld
+  - type: JSONSchema
+    url: json-schema/knowledge-record-schema.json
+  - type: Features
+    data:
+      - name: Multi-Source Aggregation
+        description: >-
+          An API knowledge record can cite multiple authoritative sources
+          (APIs.json, APIs.guru, RapidAPI Hub, Postman, the provider's own
+          portal, Naftiko Signals) for the same provider, with per-source
+          evidence and timestamps.
+      - name: Capability Modeling
+        description: >-
+          Knowledge records describe not only the existence of an API but
+          the capability it offers — what operations, what data, what
+          workflows — so that agents can match intent to a callable surface.
+      - name: Evidence and Provenance
+        description: >-
+          Every claim in an API knowledge record carries a source URL, a
+          timestamp, and an optional verbatim quote, so downstream consumers
+          can trust or re-verify the claim.
+      - name: Source-of-Truth Hierarchy
+        description: >-
+          Records mark a primary source of truth (typically the provider's
+          own OpenAPI or developer portal) and rank derivative indexes
+          below it for conflict resolution.
+      - name: Semantic Alignment
+        description: >-
+          Each record is published with a JSON-LD context that aligns its
+          terms to schema.org/WebAPI, schema.org/Organization, and the
+          APIs.json namespace so that knowledge can be linked across the
+          web.
+      - name: Agent-Readable Index
+        description: >-
+          The knowledge layer is designed to be consumed by AI agents as a
+          retrieval surface — for RAG over API documentation, for tool
+          selection in MCP hosts, and for capability lookup in agent
+          frameworks like Jentic and Composio.
+
+  - type: UseCases
+    data:
+      - name: API Discovery
+        description: >-
+          A developer or agent searches across APIs.guru, RapidAPI Hub, and
+          the Postman Network simultaneously to find an API that exposes a
+          desired capability.
+      - name: RAG Over API Documentation
+        description: >-
+          A retrieval-augmented agent indexes a provider's OpenAPI, llms.txt,
+          and developer portal, then answers questions like "how do I
+          authenticate" with source-cited responses.
+      - name: Tool Selection for Agents
+        description: >-
+          An MCP host or agent framework uses a knowledge record to pick the
+          right tool from a catalog of thousands, given an intent and a
+          policy budget.
+      - name: API Provider Intelligence
+        description: >-
+          An analyst joins APIs.guru entries with Naftiko Signals company
+          records to understand which companies are actively investing in
+          APIs and which APIs are likely to be well-supported.
+      - name: Knowledge-Driven Governance
+        description: >-
+          A platform team uses knowledge records to enforce policy: only
+          APIs with a public OpenAPI, a published status page, and a
+          documented rate-limit policy may be on-boarded.
+
+  - type: Integrations
+    data:
+      - name: APIs.json + OpenAPI
+        description: >-
+          APIs.json points to one or more OpenAPI specs per API entry,
+          tying the index format to the contract format.
+      - name: APIs.guru + OpenAPI
+        description: >-
+          APIs.guru stores raw OpenAPI 2.0/3.x definitions and exposes them
+          via a REST API.
+      - name: Postman + Collections
+        description: >-
+          The Postman Network distributes executable Collection format
+          artifacts that can be imported by any Postman client.
+      - name: schema.org + JSON-LD
+        description: >-
+          Knowledge records embed schema.org/WebAPI types via JSON-LD so
+          that search engines and agents can extract API descriptions from
+          ordinary web pages.
+      - name: Jentic + Arazzo
+        description: >-
+          Jentic describes API workflows in Arazzo and uses OpenAPI as the
+          underlying operation contract.
+      - name: Composio + MCP
+        description: >-
+          Composio exposes its tool registry as MCP servers in addition to
+          its native OpenAPI-based tool format.
+      - name: Naftiko Signals + JSON-LD
+        description: >-
+          Naftiko Signals publishes company records as JSON-LD so that they
+          can be joined to schema.org/Organization in downstream agents.
+
+  - type: Solutions
+    data:
+      - name: Open Indexes
+        description: >-
+          APIs.json and APIs.guru provide the open-source, free indexes of
+          API surface area.
+      - name: Commercial Marketplaces
+        description: >-
+          RapidAPI Hub and the Postman Public API Network monetize
+          discovery and onboarding with metering, billing, and curation.
+      - name: Agent-Facing Knowledge Layers
+        description: >-
+          Jentic and Composio convert API knowledge into agent-ready
+          capabilities with auth, sandboxing, and policy.
+      - name: Site-Level LLM Hints
+        description: >-
+          llms.txt and schema.org/WebAPI give every API provider a
+          lightweight way to publish knowledge directly from their own
+          site.
+      - name: Signals-Based Intelligence
+        description: >-
+          Naftiko Signals layers people-and-investment intelligence on top
+          of the spec-driven knowledge layer.
+
+maintainers:
+  - FN: Kin Lane
+    email: kinlane@gmail.com
+    url: http://kinlane.com

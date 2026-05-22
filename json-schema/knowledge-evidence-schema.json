@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/knowledge/json-schema/knowledge-evidence-schema.json",
+  "title": "API Knowledge Evidence",
+  "description": "A single piece of cited evidence backing a claim in an API knowledge record. The smallest unit of provenance.",
+  "type": "object",
+  "required": ["quote", "url"],
+  "properties": {
+    "quote": {
+      "type": "string",
+      "description": "Verbatim short quote from the source. Should be short enough to fall within fair use.",
+      "maxLength": 500
+    },
+    "claim": {
+      "type": "string",
+      "description": "Plain-language statement of what the quote proves (e.g. 'OpenAPI is publicly available', 'rate limit is 1000/hour')."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the page the quote was retrieved from."
+    },
+    "anchor": {
+      "type": "string",
+      "description": "Optional in-page anchor or selector pointing to the quoted text."
+    },
+    "retrieved": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "language": {
+      "type": "string",
+      "description": "BCP-47 language tag of the quote, defaults to 'en'."
+    }
+  },
+  "additionalProperties": false
+}

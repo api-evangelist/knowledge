@@ -1,0 +1,38 @@
+{
+  "summary": "Send and receive SMS, MMS, and WhatsApp messages over a REST API.",
+  "intent": [
+    "send a text message",
+    "send an MMS",
+    "check delivery status",
+    "manage a WhatsApp business account"
+  ],
+  "categories": ["Communications", "Messaging"],
+  "operations": [
+    {
+      "name": "createMessage",
+      "method": "POST",
+      "path": "/2010-04-01/Accounts/{AccountSid}/Messages.json",
+      "description": "Send a new message.",
+      "scopes": ["messaging:write"]
+    },
+    {
+      "name": "fetchMessage",
+      "method": "GET",
+      "path": "/2010-04-01/Accounts/{AccountSid}/Messages/{Sid}.json",
+      "description": "Fetch the current state of a message.",
+      "scopes": ["messaging:read"]
+    }
+  ],
+  "auth": ["BasicAuth", "BearerToken"],
+  "limits": {
+    "rateLimit": "Per-account, varies by region and product line",
+    "concurrency": "Subaccount-scoped"
+  },
+  "agentReady": {
+    "hasOpenAPI": true,
+    "hasMCPServer": false,
+    "hasArazzo": false,
+    "hasLlmsTxt": false,
+    "hasJsonLd": false
+  }
+}

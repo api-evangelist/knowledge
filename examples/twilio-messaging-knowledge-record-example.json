@@ -1,0 +1,94 @@
+{
+  "id": "twilio:messaging",
+  "name": "Twilio Messaging API",
+  "description": "Twilio's API for sending and receiving SMS, MMS, and WhatsApp messages. Indexed in APIs.guru and the Postman Network, with first-party OpenAPI specs published in github.com/twilio/twilio-oai.",
+  "humanURL": "https://www.twilio.com/docs/messaging/api",
+  "baseURL": "https://api.twilio.com",
+  "provider": {
+    "name": "Twilio Inc.",
+    "url": "https://www.twilio.com",
+    "githubOrg": "https://github.com/twilio",
+    "type": "Company"
+  },
+  "capability": {
+    "summary": "Send and receive SMS, MMS, and WhatsApp messages over a REST API.",
+    "intent": [
+      "send a text message",
+      "send an MMS",
+      "check delivery status",
+      "manage a WhatsApp business account"
+    ],
+    "categories": ["Communications", "Messaging"],
+    "operations": [
+      {
+        "name": "createMessage",
+        "method": "POST",
+        "path": "/2010-04-01/Accounts/{AccountSid}/Messages.json",
+        "description": "Send a new SMS, MMS, or WhatsApp message."
+      },
+      {
+        "name": "fetchMessage",
+        "method": "GET",
+        "path": "/2010-04-01/Accounts/{AccountSid}/Messages/{Sid}.json",
+        "description": "Fetch the current state of a message."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "type": "ProviderPortal",
+      "url": "https://www.twilio.com/docs/messaging/api",
+      "retrieved": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "GitHubRepository",
+      "url": "https://github.com/twilio/twilio-oai",
+      "evidence": {
+        "quote": "Twilio's OpenAPI specifications",
+        "claim": "Twilio publishes first-party OpenAPI specs on GitHub.",
+        "url": "https://github.com/twilio/twilio-oai"
+      },
+      "retrieved": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "APIsGuru",
+      "url": "https://api.apis.guru/v2/specs/twilio.com/api/v1.0.0/openapi.yaml",
+      "retrieved": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "Postman",
+      "url": "https://www.postman.com/twilio",
+      "retrieved": "2026-05-22T00:00:00Z"
+    }
+  ],
+  "sourceOfTruth": "https://github.com/twilio/twilio-oai",
+  "artifacts": {
+    "openapi": [
+      "https://github.com/twilio/twilio-oai"
+    ]
+  },
+  "signals": [
+    {
+      "type": "HasPublicStatusPage",
+      "value": true,
+      "source": "https://status.twilio.com",
+      "observed": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "HasPublicChangelog",
+      "value": true,
+      "source": "https://www.twilio.com/docs/changelog",
+      "observed": "2026-05-22T00:00:00Z"
+    },
+    {
+      "type": "SDKCount",
+      "value": 8,
+      "source": "https://github.com/twilio",
+      "observed": "2026-05-22T00:00:00Z"
+    }
+  ],
+  "tags": ["Messaging", "SMS", "WhatsApp", "REST", "OpenAPI"],
+  "created": "2026-05-22",
+  "modified": "2026-05-22",
+  "confidence": "High"
+}
