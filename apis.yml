@@ -9,8 +9,7 @@ description: >-
   as commercial discovery surfaces, the OpenAPI Initiative as the spec
   authority, Jentic and Composio as agent-facing knowledge layers, llms.txt as
   a site-level guide for LLMs, schema.org/WebAPI as the structured-data
-  vocabulary, and Naftiko Signals as a company-and-investment intelligence
-  layer that complements the spec-driven catalogs. Together they form a
+  vocabulary. Together they form a
   multi-source view of the API knowledge an AI agent needs to do real work
   against the API economy.
 url: https://github.com/api-evangelist/knowledge
@@ -190,31 +189,6 @@ apis:
       - type: Documentation
         url: https://docs.composio.dev
 
-  - name: Naftiko Signals
-    description: >-
-      Naftiko Signals is an investment-and-technology intelligence layer that
-      tracks how companies invest in technology categories — including APIs —
-      across industries. As reported on signals.naftiko.io, the platform
-      currently indexes 884 companies across 50 industries and 44 signal
-      groups, harvesting public signals (job postings, GitHub, blogs,
-      changelogs) and emitting JSON-LD-described company records so agents and
-      analysts can reason about API providers in context. It complements
-      OpenAPI-centric catalogs like APIs.guru by capturing the people,
-      hiring, and organizational signals around an API.
-    humanURL: https://signals.naftiko.io
-    tags:
-      - Signals
-      - Intelligence
-      - Companies
-      - JSON-LD
-    properties:
-      - type: Portal
-        url: https://signals.naftiko.io
-      - type: GitHubOrganization
-        url: https://github.com/naftiko
-      - type: GitHubRepository
-        url: https://github.com/api-evangelist/naftiko
-
   - name: llms.txt
     description: >-
       llms.txt is a community specification for a markdown file placed at the
@@ -272,7 +246,7 @@ common:
         description: >-
           An API knowledge record can cite multiple authoritative sources
           (APIs.json, APIs.guru, RapidAPI Hub, Postman, the provider's own
-          portal, Naftiko Signals) for the same provider, with per-source
+          portal) for the same provider, with per-source
           evidence and timestamps.
       - name: Capability Modeling
         description: >-
@@ -321,9 +295,9 @@ common:
           policy budget.
       - name: API Provider Intelligence
         description: >-
-          An analyst joins APIs.guru entries with Naftiko Signals company
-          records to understand which companies are actively investing in
-          APIs and which APIs are likely to be well-supported.
+          An analyst joins APIs.guru entries with company hiring and
+          investment signals to understand which companies are actively
+          investing in APIs and which APIs are likely to be well-supported.
       - name: Knowledge-Driven Governance
         description: >-
           A platform team uses knowledge records to enforce policy: only
@@ -357,10 +331,6 @@ common:
         description: >-
           Composio exposes its tool registry as MCP servers in addition to
           its native OpenAPI-based tool format.
-      - name: Naftiko Signals + JSON-LD
-        description: >-
-          Naftiko Signals publishes company records as JSON-LD so that they
-          can be joined to schema.org/Organization in downstream agents.
 
   - type: Solutions
     data:
@@ -381,10 +351,6 @@ common:
           llms.txt and schema.org/WebAPI give every API provider a
           lightweight way to publish knowledge directly from their own
           site.
-      - name: Signals-Based Intelligence
-        description: >-
-          Naftiko Signals layers people-and-investment intelligence on top
-          of the spec-driven knowledge layer.
 
 maintainers:
   - FN: Kin Lane
