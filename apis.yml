@@ -230,6 +230,8 @@ apis:
         url: https://schema.org/WebAPI
 
 common:
+  - type: DomainSecurity
+    url: security/knowledge-domain-security.yml
   - type: Portal
     url: https://github.com/api-evangelist/knowledge
   - type: GitHubRepository

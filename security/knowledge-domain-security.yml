@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: apisjson.org
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 14 08:02:26 2026 GMT
+  hsts: false
+- host: apis.guru
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 15 15:09:58 2026 GMT
+  hsts: false
+- host: api.apis.guru
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 25 02:24:31 2026 GMT
+  hsts: null
+domains:
+- domain: apisjson.org
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
+- domain: apis.guru
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: true
+  dmarc_policy: none
