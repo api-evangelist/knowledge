@@ -1,4 +1,5 @@
 name: API Knowledge
+kind: topic
 description: >-
   API knowledge is the layer of indexes, descriptions, contexts, and signals
   that lets humans and agents reason about which APIs exist, what they do, who
