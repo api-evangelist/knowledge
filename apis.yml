@@ -126,6 +126,11 @@ apis:
       collection-format counterpart to APIs.guru's OpenAPI directory.
     humanURL: https://www.postman.com/explore
     tags:
+      - Collection
+      - Discovery
+      - Workspaces
+      - Commercial
+    tags_raw:
       - Collections
       - Discovery
       - Workspaces
@@ -191,6 +196,11 @@ apis:
       "knowledge plus auth plus execution" layer aimed at agent builders.
     humanURL: https://composio.dev
     tags:
+      - Agents
+      - Tools
+      - MCP
+      - Integration
+    tags_raw:
       - Agents
       - Tools
       - MCP
