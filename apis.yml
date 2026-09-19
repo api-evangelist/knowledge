@@ -40,6 +40,20 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/knowledge.png
 tags:
   - API Knowledge
+  - Knowledge Graph
+  - API Discovery
+  - API Search
+  - Catalog
+  - Index
+  - Registries
+  - RAG
+  - Semantic Web
+  - JSON-LD
+  - LLM
+  - AI Agents
+  - Topic
+tags_raw:
+  - API Knowledge
   - Knowledge Graphs
   - API Discovery
   - API Search
@@ -139,7 +153,7 @@ apis:
     tags:
       - Collection
       - Discovery
-      - Workspaces
+      - Workspace
       - Commercial
     tags_raw:
       - Collections
@@ -162,6 +176,11 @@ apis:
       runs learn.openapis.org as a knowledge surface for the spec itself.
     humanURL: https://www.openapis.org
     tags:
+      - Standards
+      - OpenAPI
+      - Specification
+      - Linux Foundation
+    tags_raw:
       - Standard
       - OpenAPI
       - Specification
